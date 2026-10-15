@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Liquid Glass Motivation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #090d16;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(99, 102, 241, 0.25) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(14, 165, 233, 0.25) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(168, 85, 247, 0.2) 0px, transparent 50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            position: z-index: 10;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Liquid Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 28px;
+            padding: 45px 35px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.02);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 30px 60px -12px rgba(99, 102, 241, 0.25),
+                inset 0 0 40px rgba(255, 255, 255, 0.04);
+            transform: translateY(-4px);
+        }
+
+        .quote-icon {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .quote-text {
+            color: #f1f5f9;
+            font-size: 1.35rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 500;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Liquid Button */
+        .btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 35px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2));
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px -5px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #475569;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>NEET Spark</h1>
+        <div class="subtitle">Liquid Glass Motivation</div>
+
+        <div class="glass-card">
+            <div class="quote-icon">“</div>
+            <div id="quote" class="quote-text">
+                AIIMS Delhi is not just a college; it is a destination carved by every single sacrifice you make today.
+            </div>
+            <div class="author">Target AIR 1</div>
+        </div>
+
+        <button class="btn" onclick="nextQuote()">Next Motivation ✨</button>
+        
+        <div class="footer">Made for NEET Aspirants • Keep Pushing Forward</div>
+    </div>
+
+    <script>
+        const quotes = [
+            {
+                text: "AIIMS Delhi is not just a college; it is a destination carved by every single sacrifice you make today.",
+                author: "Target AIR 1"
+            },
+            {
+                text: "The pain of studying is temporary, but the pride of wearing that white coat and stethoscope is forever.",
+                author: "Doctor Mindset"
+            },
+            {
+                text: "NCERT is your Geeta, Bible, and Quran. Master every single line, and NEET is yours.",
+                author: "Biology Mantra"
+            },
+            {
+                text: "When you feel like quitting, remember why you started. Millions are relying on the doctor you will become.",
+                author: "NEET Warriors"
+            },
+            {
+                text: "Physics numericals don't test your intelligence; they test your patience and practice.",
+                author: "Physics Wallah Vibe"
+            },
+            {
+                text: "12 hours of daily dedication today will buy you a lifetime of respect and saving lives tomorrow.",
+                author: "Future Surgeon"
+            },
+            {
+                text: "Your competition is not with others; it's with the person you were yesterday. Beat your own score in every mock test.",
+                author: "Test Series Wisdom"
+            }
+        ];
+
+        function nextQuote() {
+            const card = document.querySelector('.glass-card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                document.getElementById('quote').innerText = quotes[randomIndex].text;
+                document.querySelector('.author').innerText = quotes[randomIndex].author;
+
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 200);
+        }
+
+        // Add smooth transition to card
+        document.querySelector('.glass-card').style.transition = 'all 0.3s ease';
+    </script>
+</body>
+</html>
