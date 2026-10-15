@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEET Liquid Glass Motivation</title>
+    <title>NEET Spark - Liquid Glass Study Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -21,36 +21,37 @@
                 radial-gradient(at 90% 80%, rgba(14, 165, 233, 0.25) 0px, transparent 50%),
                 radial-gradient(at 50% 50%, rgba(168, 85, 247, 0.2) 0px, transparent 50%);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            padding: 20px;
-            overflow-x: hidden;
+            padding: 30px 20px;
+            color: #f1f5f9;
         }
 
         .container {
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
             text-align: center;
-            position: z-index: 10;
+        }
+
+        header {
+            margin-bottom: 30px;
         }
 
         h1 {
-            color: #ffffff;
-            font-size: 2.2rem;
-            margin-bottom: 8px;
+            font-size: 2.4rem;
             font-weight: 700;
             letter-spacing: -0.5px;
             background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
         }
 
         .subtitle {
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-bottom: 40px;
+            color: #38bdf8;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             font-weight: 600;
         }
 
@@ -63,36 +64,48 @@
             border-top: 1px solid rgba(255, 255, 255, 0.15);
             border-left: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 28px;
-            padding: 45px 35px;
-            box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                inset 0 0 30px rgba(255, 255, 255, 0.02);
-            position: relative;
+            padding: 35px 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 25px;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: left;
         }
 
         .glass-card:hover {
             border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 
-                0 30px 60px -12px rgba(99, 102, 241, 0.25),
-                inset 0 0 40px rgba(255, 255, 255, 0.04);
-            transform: translateY(-4px);
+            box-shadow: 0 30px 60px -12px rgba(99, 102, 241, 0.25);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #38bdf8;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Quote Section */
+        .quote-center {
+            text-align: center;
         }
 
         .quote-icon {
             font-size: 2.5rem;
             color: #38bdf8;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             opacity: 0.8;
+            line-height: 0.5;
         }
 
         .quote-text {
             color: #f1f5f9;
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-weight: 500;
-            min-height: 100px;
+            min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -100,25 +113,83 @@
 
         .author {
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        /* Liquid Button */
+        /* Pomodoro Timer */
+        .timer-display {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 15px 0;
+            letter-spacing: 2px;
+            color: #ffffff;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timer-controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        /* Checklist Section */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .check-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .check-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #38bdf8;
+            cursor: pointer;
+        }
+
+        .check-item label {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            cursor: pointer;
+            user-select: none;
+            flex-grow: 1;
+        }
+
+        .check-item.completed label {
+            text-decoration: line-through;
+            color: #64748b;
+        }
+
+        /* Liquid Buttons */
         .btn {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: #ffffff;
-            padding: 14px 32px;
-            border-radius: 16px;
-            font-size: 1rem;
+            padding: 12px 24px;
+            border-radius: 14px;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
-            margin-top: 35px;
             transition: all 0.3s ease;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         }
@@ -126,16 +197,16 @@
         .btn:hover {
             background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2));
             border-color: rgba(56, 189, 248, 0.4);
-            transform: scale(1.03);
-            box-shadow: 0 15px 30px -5px rgba(56, 189, 248, 0.3);
+            transform: translateY(-2px);
         }
 
-        .btn:active {
-            transform: scale(0.98);
+        .btn-primary {
+            width: 100%;
+            margin-top: 15px;
         }
 
         .footer {
-            margin-top: 30px;
+            margin-top: 20px;
             color: #475569;
             font-size: 0.85rem;
         }
@@ -144,71 +215,133 @@
 <body>
 
     <div class="container">
-        <h1>NEET Spark</h1>
-        <div class="subtitle">Liquid Glass Motivation</div>
+        <header>
+            <h1>NEET Spark Hub</h1>
+            <div class="subtitle">Liquid Glass Study & Motivation System</div>
+        </header>
 
-        <div class="glass-card">
+        <!-- Quote Card -->
+        <div class="glass-card quote-center">
             <div class="quote-icon">“</div>
             <div id="quote" class="quote-text">
                 AIIMS Delhi is not just a college; it is a destination carved by every single sacrifice you make today.
             </div>
             <div class="author">Target AIR 1</div>
+            <button class="btn btn-primary" onclick="nextQuote()">Next Motivation ✨</button>
         </div>
 
-        <button class="btn" onclick="nextQuote()">Next Motivation ✨</button>
-        
-        <div class="footer">Made for NEET Aspirants • Keep Pushing Forward</div>
+        <!-- Pomodoro Focus Timer -->
+        <div class="glass-card">
+            <div class="card-title">⏳ Pomodoro Focus Timer</div>
+            <div class="timer-display" id="timer">25:00</div>
+            <div class="timer-controls">
+                <button class="btn" id="startBtn" onclick="toggleTimer()">Start Focus</button>
+                <button class="btn" onclick="resetTimer()">Reset</button>
+            </div>
+        </div>
+
+        <!-- Daily Target Checklist -->
+        <div class="glass-card">
+            <div class="card-title">🎯 Today's NEET Milestones</div>
+            <div class="checklist">
+                <div class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox">
+                    <label>Biology: Read 2 NCERT Chapters thoroughly</label>
+                </div>
+                <div class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox">
+                    <label>Physics: Solve 50 Numericals (Mechanics)</label>
+                </div>
+                <div class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox">
+                    <label>Chemistry: Organic Reaction Mechanisms Revision</label>
+                </div>
+                <div class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox">
+                    <label>Attempt Full Syllabus Mock Test + Analysis</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">Made with 💙 for NEET Aspirants • Keep Pushing Forward</div>
     </div>
 
     <script>
+        // Quotes Logic
         const quotes = [
-            {
-                text: "AIIMS Delhi is not just a college; it is a destination carved by every single sacrifice you make today.",
-                author: "Target AIR 1"
-            },
-            {
-                text: "The pain of studying is temporary, but the pride of wearing that white coat and stethoscope is forever.",
-                author: "Doctor Mindset"
-            },
-            {
-                text: "NCERT is your Geeta, Bible, and Quran. Master every single line, and NEET is yours.",
-                author: "Biology Mantra"
-            },
-            {
-                text: "When you feel like quitting, remember why you started. Millions are relying on the doctor you will become.",
-                author: "NEET Warriors"
-            },
-            {
-                text: "Physics numericals don't test your intelligence; they test your patience and practice.",
-                author: "Physics Wallah Vibe"
-            },
-            {
-                text: "12 hours of daily dedication today will buy you a lifetime of respect and saving lives tomorrow.",
-                author: "Future Surgeon"
-            },
-            {
-                text: "Your competition is not with others; it's with the person you were yesterday. Beat your own score in every mock test.",
-                author: "Test Series Wisdom"
-            }
+            { text: "AIIMS Delhi is not just a college; it is a destination carved by every single sacrifice you make today.", author: "Target AIR 1" },
+            { text: "The pain of studying is temporary, but the pride of wearing that white coat and stethoscope is forever.", author: "Doctor Mindset" },
+            { text: "NCERT is your Geeta, Bible, and Quran. Master every single line, and NEET is yours.", author: "Biology Mantra" },
+            { text: "When you feel like quitting, remember why you started. Millions are relying on the doctor you will become.", author: "NEET Warriors" },
+            { text: "Physics numericals don't test your intelligence; they test your patience and practice.", author: "Physics Wallah Vibe" },
+            { text: "12 hours of daily dedication today will buy you a lifetime of respect and saving lives tomorrow.", author: "Future Surgeon" }
         ];
 
         function nextQuote() {
-            const card = document.querySelector('.glass-card');
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(10px)';
-
+            const quoteEl = document.getElementById('quote');
+            const authorEl = document.querySelector('.author');
+            quoteEl.style.opacity = '0';
             setTimeout(() => {
-                const randomIndex = Math.floor(Math.random() * quotes.length);
-                document.getElementById('quote').innerText = quotes[randomIndex].text;
-                document.querySelector('.author').innerText = quotes[randomIndex].author;
-
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
+                const rand = Math.floor(Math.random() * quotes.length);
+                quoteEl.innerText = quotes[rand].text;
+                authorEl.innerText = quotes[rand].author;
+                quoteEl.style.opacity = '1';
             }, 200);
         }
+        document.getElementById('quote').style.transition = 'opacity 0.3s ease';
 
-        // Add smooth transition to card
-        document.querySelector('.glass-card').style.transition = 'all 0.3s ease';
+        // Pomodoro Timer Logic
+        let timerInterval = null;
+        let timeLeft = 25 * 60;
+        let isRunning = false;
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').innerText = 
+                `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function toggleTimer() {
+            const btn = document.getElementById('startBtn');
+            if (isRunning) {
+                clearInterval(timerInterval);
+                btn.innerText = "Resume Focus";
+                isRunning = false;
+            } else {
+                isRunning = true;
+                btn.innerText = "Pause";
+                timerInterval = setInterval(() => {
+                    if (timeLeft > 0) {
+                        timeLeft--;
+                        updateTimerDisplay();
+                    } else {
+                        clearInterval(timerInterval);
+                        alert("Pomodoro session completed! Take a 5-minute break.");
+                        resetTimer();
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            isRunning = false;
+            timeLeft = 25 * 60;
+            updateTimerDisplay();
+            document.getElementById('startBtn').innerText = "Start Focus";
+        }
+
+        // Checklist Logic
+        function toggleCheck(item) {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            if (checkbox.checked) {
+                item.classList.add('completed');
+            } else {
+                item.classList.remove('completed');
+            }
+        }
     </script>
 </body>
 </html>
